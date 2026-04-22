@@ -37,6 +37,13 @@ from typing import Any
 DEFAULT_BASE = "https://catsapi.com"
 POLL_INTERVAL = 3
 POLL_TIMEOUT = 900  # 15 分钟
+# 默认 Python urllib 的 UA 会被 catsapi.com 前面的 Cloudflare Bot Fight Mode 拦成 403,
+# 伪装成浏览器避免被指纹墙误伤。
+USER_AGENT = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/124.0.0.0 Safari/537.36"
+)
 
 
 def _log(msg: str) -> None:
@@ -68,6 +75,7 @@ def _request(method: str, path: str, body: dict | None = None, timeout: int = 60
     headers = {
         "Authorization": f"Bearer {_api_key()}",
         "Accept": "application/json",
+        "User-Agent": USER_AGENT,
     }
     data: bytes | None = None
     if body is not None:
@@ -184,8 +192,9 @@ def _encode_image(path: str) -> dict:
 def _download(url: str, out_path: str) -> None:
     out = pathlib.Path(out_path)
     out.parent.mkdir(parents=True, exist_ok=True)
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     try:
-        with urllib.request.urlopen(url, timeout=300) as resp, out.open("wb") as f:
+        with urllib.request.urlopen(req, timeout=300) as resp, out.open("wb") as f:
             while True:
                 chunk = resp.read(65536)
                 if not chunk:

@@ -19,6 +19,12 @@ import pathlib
 import urllib.parse
 import urllib.request
 
+USER_AGENT = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/124.0.0.0 Safari/537.36"
+)
+
 
 def _extract_param_schema(schema: dict) -> dict:
     """把模型参数 schema 化简为"名字→options / default"。"""
@@ -71,7 +77,8 @@ def _build_from_files(image_path: pathlib.Path, video_path: pathlib.Path) -> dic
 def _build_from_api(base: str) -> dict:
     def _fetch(task_type: str) -> list[dict]:
         url = f"{base.rstrip('/')}/api/models?type={urllib.parse.quote(task_type)}"
-        with urllib.request.urlopen(url, timeout=30) as resp:
+        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        with urllib.request.urlopen(req, timeout=30) as resp:
             return json.loads(resp.read().decode("utf-8")).get("models", [])
 
     img = _fetch("image")
