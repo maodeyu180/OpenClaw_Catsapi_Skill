@@ -9,25 +9,27 @@
 
 ## 文生图菜单(用户没传图片时用这份)
 
-> 想画点什么?帮你挑了 5 个当前最好用的模型,选个数字就能开始~
+> 想画点什么?帮你挑了 6 个当前最好用的模型,选个数字就能开始~
 >
-> 1. 🍌 **Nano Banana Pro** — 综合最强,默认推荐,人像/场景/风格都扎实(支持 1K/2K/4K)
-> 2. ⚡ **Nano Banana 2** — 最快最便宜,适合批量出稿/试水
-> 3. 🎭 **Midjourney** — 欧美大片质感,氛围和构图拉满
+> 1. 🤖 **Grok Imagine** — xAI 出品,想象力强、风格大胆,适合创意/抽象题材
+> 2. ⚡ **Nano Banana 2** — 最快最便宜,适合批量出稿/试水(支持 512px/1K/2K/4K)
+> 3. 🍌 **Nano Banana Pro** — 综合最强,人像/场景/风格都扎实(支持 1K/2K/4K)
 > 4. 🎨 **Seedream 4.5** — 字节出品,写实和质感是强项
-> 5. 🌈 **FLUX.2 [Pro]** — 细节和提示词跟随度最好,适合复杂描述
+> 5. 🧠 **GPT Image 2** — OpenAI 系,抽象指令理解最好,支持超大尺寸到 3840x2160
+> 6. 🌈 **FLUX.2 [Pro]** — 细节和提示词跟随度最好,适合复杂描述
 >
-> 选几号?(默认 1,或者发"1/2/3/4/5")
+> 选几号?(默认 3,或者发"1/2/3/4/5/6")
 
 选中后对应的 `--model` / 建议参数:
 
 | # | 菜单名 | --model | 常用 --param |
 |---|---|---|---|
-| 1 | Nano Banana Pro | `nanoBananaPro` | `size=2K`(默认) 或 `1K` / `4K` |
-| 2 | Nano Banana 2 | `nanoBanana2` | `size=1K` 默认,可 `512px` / `2K` / `4K` |
-| 3 | Midjourney | `midjourney` | `aspectRatio=16:9` 等,**num 固定为 1** |
-| 4 | Seedream 4.5 | `seedream` | `aspectRatio=16:9` |
-| 5 | FLUX.2 [Pro] | `flux2Pro` | 一般无需额外参数 |
+| 1 | Grok Imagine | `grokImagineImage` | `aspectRatio=16:9` 等(默认 `1:1`,可选 `2:1` / `20:9` / `9:16` / `1:2` 等) |
+| 2 | Nano Banana 2 | `nanoBanana2` | `resolution=1K`(默认),可 `512px` / `2K` / `4K`;`aspectRatio=16:9` 等 |
+| 3 | Nano Banana Pro | `nanoBananaPro` | `resolution=2K`(推荐) 或 `1K` / `4K`;`aspectRatio=16:9` 等 |
+| 4 | Seedream 4.5 | `seedream` | `imageSize=landscape_16_9` / `portrait_16_9` / `square` / `landscape_4_3` / `portrait_4_3` |
+| 5 | GPT Image 2 | `gptImage2` | `size=1024x1024`(默认),可 `1536x1024` / `2048x2048` / `3840x2160` 等;`quality=auto`/`low`/`medium`/`high` |
+| 6 | FLUX.2 [Pro] | `flux2Pro` | `aspectRatio=square_hd`(默认) / `landscape_16_9` / `portrait_16_9` / `landscape_4_3` 等 |
 
 ## 图生图 / 图片编辑菜单(用户传了图片时用这份)
 
@@ -53,10 +55,10 @@
 
 | model_key | 名字 | 场景 |
 |---|---|---|
-| `gptImage15` / `gptImage2` | GPT Image 1.5 / 2 | 纯 GPT 系文生图 |
+| `gptImage15` | GPT Image 1.5 | GPT 系上一代 |
 | `nanoBanana` | Nano Banana | 旧版,Pro 出来后一般不推荐 |
-| `grokImagineImage` | Grok Imagine | xAI 风格 |
-| `flux2` | FLUX.2 | Pro 的标准版 |
+| `midjourney` | Midjourney | 欧美大片质感,**num 固定为 1** |
+| `flux2` | FLUX.2 | Pro 的标准版,更便宜 |
 | `fluxKontext` | FLUX.1 Kontext | 文生图用 |
 | `fluxProUltra` | FLUX 1.1 [pro] Ultra | 高细节 |
 | `dreamina` | Dreamina | 字节 Dreamina |
@@ -69,10 +71,10 @@
 ## 调用示例
 
 ```bash
-# 用户选了 1 号 Nano Banana Pro,提示词"星空下的黑猫",默认 2K
+# 用户选了 3 号 Nano Banana Pro,提示词"星空下的黑猫",默认 2K
 python3 {baseDir}/scripts/catsapi.py --generate --type image \
   --model nanoBananaPro --prompt "星空下的黑猫, 电影感, 4K" \
-  --param size=2K --num 1 \
+  --param resolution=2K --num 1 \
   -o /tmp/openclaw/catsapi-output/cat_$(date +%s).png
 ```
 

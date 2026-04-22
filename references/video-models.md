@@ -11,33 +11,32 @@
 
 > 视频来啦~ 挑个喜欢的模型:
 >
-> 1. 🚀 **Wan 2.5** — 性价比之王,1080p 又快又稳,默认推荐
-> 2. 🎬 **Veo 3.1** — Google 出品,电影感拉满,价高质优
-> 3. 🎯 **Kling AI v3** — 可灵,人物运动最自然,拍人物首选
-> 4. 🌱 **Seedance 2.0** — 字节最新,最长 15 秒,细节超棒
-> 5. 🌊 **Hailuo 2** — Minimax 海螺,速度快画面细腻
-> 6. ✨ **Sora 2** — OpenAI Sora,想象力天花板(贵)
+> 1. 🤖 **Grok Imagine Video** — xAI 出品,便宜、想象力强,适合创意短片
+> 2. 🚀 **Wan 2.5** — 性价比之王,1080p 又快又稳,默认推荐
+> 3. 🌱 **Seedance 2.0** — 字节最新,最长 15 秒,细节超棒,支持真人
+> 4. 🌊 **Hailuo 2** — Minimax 海螺,速度快画面细腻
+> 5. 🎯 **Kling O3** — 可灵 O3,人物运动最自然,拍人物首选
 >
-> 选几号?(默认 1,或者发"1/2/...")
+> 选几号?(默认 2,或者发"1/2/3/4/5")
 
 选中后对应的 `--model` / 必填参数 / 限制:
 
 | # | 菜单名 | --model | 常用 --param | 备注 |
 |---|---|---|---|---|
-| 1 | Wan 2.5 | `wan25` | `resolution=1080p` / `480p`、`duration=5`/`10`、`aspectRatio=16:9` | 最平衡 |
-| 2 | Veo 3.1 | `veo31` | `resolution=1080p`,时长通常 5-8s | 价格高,先预览成本 |
-| 3 | Kling AI v3 | `klingAiV3` | `duration=5`/`10`、`aspectRatio=16:9` | 支持起始帧图生视频 |
-| 4 | Seedance 2.0 | `seedance20` | `resolution=1080p`、`duration=5`/`10`/`15`、`aspectRatio=16:9` | 最长 15s + 支持真人 |
-| 5 | Hailuo 2 | `minimax` | `resolution=1080p`、`duration=6`/`10` | 速度快 |
-| 6 | Sora 2 | `sora` | `resolution=1280x720` 或 `720x1280`、`duration=4`/`8`/`12` | 很贵,**务必先预览成本** |
+| 1 | Grok Imagine Video | `grokImagineVideo` | `resolution=480p`(默认) 或 `720p`、`duration=5`-`15`、`aspectRatio=16:9` 等 | 便宜,最高 720p |
+| 2 | Wan 2.5 | `wan25` | `resolution=480p`(默认) / `720p` / `1080p`、`duration=5`/`10`、`aspectRatio=16:9` | 最平衡 |
+| 3 | Seedance 2.0 | `seedance20` | `resolution=720p`(默认) / `480p`、`duration=4`-`15`、`aspectRatio=16:9`、`mode=fast`/`standard` | 最长 15s + 支持真人,**不支持 1080p** |
+| 4 | Hailuo 2 | `minimax` | `duration=6`/`10`、`mode=standard`/`pro` | 速度快,**没有 resolution 参数** |
+| 5 | Kling O3 | `klingAiO3` | `duration=3`-`15`、`aspectRatio=16:9`/`9:16`/`1:1`、`mode=pro`(默认) / `standard` | 支持起始帧 + 结束帧 + 参考图 |
 
 ## 其他可调用的视频模型
 
 | model_key | 名字 | 场景 |
 |---|---|---|
-| `grokImagineVideo` | Grok Imagine Video | xAI,便宜,想象力强 |
+| `veo31` | Veo 3.1 | Google,电影感拉满,价高 |
+| `sora` | Sora 2 | OpenAI,想象力天花板,**很贵** |
+| `klingAiV3` | Kling AI v3 | 可灵 v3,稳定老选择 |
 | `wan` | Wan 2.2 | 旧版 Wan,2.5 不够时备选 |
-| `klingAiO3` | Kling O3 | 可灵 O3 |
 | `klingAiV26` | Kling 2.6 | Kling 2.6 标准 |
 | `klingAiV26Motion` | Kling 2.6 Motion Control | 运动控制专用 |
 | `seedance15Pro` | Seedance 1.5 Pro | 旧版 |

@@ -51,9 +51,9 @@ python3 {baseDir}/scripts/catsapi.py --check
 
 | 用户意图 | 做什么 |
 |---|---|
-| **文生图 / "画个..." / "生成一张..."** | **⚠️ 必须先读 `{baseDir}/references/image-models.md`**,呈现 5 选 1 菜单等用户选择 |
+| **文生图 / "画个..." / "生成一张..."** | **⚠️ 必须先读 `{baseDir}/references/image-models.md`**,呈现 6 选 1 菜单等用户选择 |
 | **图生图 / 图片编辑 / "把这张图..."** | **⚠️ 必须先读 `{baseDir}/references/image-models.md`**,用户有传图时用 "编辑类" 菜单 |
-| **文生视频 / 图生视频 / "做成视频"** | **⚠️ 必须先读 `{baseDir}/references/video-models.md`**,呈现 6 选 1 菜单等用户选择 |
+| **文生视频 / 图生视频 / "做成视频"** | **⚠️ 必须先读 `{baseDir}/references/video-models.md`**,呈现 5 选 1 菜单等用户选择 |
 | **图片放大 / 去噪 / 4K** | `--model magnific --type image`,菜单里单列 |
 | **视频放大 / 4K 升级** | `--model topaz --type video`,慢任务需提前通知 |
 | **费用预览 / "这个要多少钱"** | `--cost --model X --type image/video --resolution ... --duration ...`(详见下方"费用预览"段) |
@@ -75,7 +75,7 @@ python3 {baseDir}/scripts/catsapi.py --check
 # 文生图
 python3 {baseDir}/scripts/catsapi.py --generate --type image \
   --model nanoBananaPro --prompt "一只戴墨镜的橘猫在海边" \
-  --param size=2K --num 1 \
+  --param resolution=2K --num 1 \
   -o /tmp/openclaw/catsapi-output/cat_$(date +%s).png
 
 # 文生视频
