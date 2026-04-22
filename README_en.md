@@ -8,8 +8,8 @@ An **Agent Skills**-standard skill pack that lets AI assistants in OpenClaw / Cu
 
 | Category | Count | Examples |
 |---|---:|---|
-| Image generation | 24 | GPT Image 1.5/2, Nano Banana 2/Pro, Midjourney, FLUX.2 Pro, Seedream 4.5, Imagen 4, Hunyuan Image 3.0, Recraft SVG, Ideogram 3.0 |
-| Video generation | 16 | Sora 2, Veo 3.1, Wan 2.5, Kling AI v3/O3/v2.6, Seedance 2.0, Hailuo 2, Luma Labs, Runway, Topaz Upscaler |
+| Image generation | 24 | GPT Image 1.5/2, Nano Banana 2/Pro, Midjourney, FLUX.2 Pro, Seedream 4.5, Grok Imagine Image |
+| Video generation | 16 | Wan 2.5, Kling AI v3/O3/v2.6, Seedance 2.0, Hailuo 2, Luma Labs, Runway, Grok Imagine Video |
 
 ## Quick Start
 
@@ -117,6 +117,5 @@ Apache License 2.0 — see [LICENSE](./LICENSE).
 ## Related
 
 - [catsapi.com](https://catsapi.com)
-- [HM-RunningHub/OpenClaw_RH_Skills](https://github.com/HM-RunningHub/OpenClaw_RH_Skills) — reference implementation this skill is structured after
 - [Cursor Agent Skills docs](https://cursor.com/docs/skills)
 - [Agent Skills open standard](https://agentskills.io)

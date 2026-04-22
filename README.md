@@ -8,8 +8,8 @@
 
 | 类别 | 数量 | 代表模型 |
 |---|---:|---|
-| 图片生成 | 24 | GPT Image 1.5/2、Nano Banana 2/Pro、Midjourney、FLUX.2 Pro、Seedream 4.5、Imagen 4、Hunyuan Image 3.0、Recraft SVG、Ideogram 3.0 |
-| 视频生成 | 16 | Sora 2、Veo 3.1、Wan 2.5、Kling AI v3/O3/v2.6、Seedance 2.0、Hailuo 2、Luma Labs、Runway、Topaz Upscaler |
+| 图片生成 | 24 | GPT Image 1.5/2、Nano Banana 2/Pro、Midjourney、FLUX.2 Pro、Seedream 4.5、Grok Imagine Image |
+| 视频生成 | 16 | Wan 2.5、Kling AI v3/O3/v2.6、Seedance 2.0、Hailuo 2、Luma Labs、Runway、Grok Imagine Video |
 
 ## 快速开始
 
@@ -144,6 +144,5 @@ Apache License 2.0 — 见 [LICENSE](./LICENSE)。
 ## 相关项目
 
 - [catsapi.com](https://catsapi.com) — 猫影工坊主站
-- [HM-RunningHub/OpenClaw_RH_Skills](https://github.com/HM-RunningHub/OpenClaw_RH_Skills) — 本项目结构参考
 - [Cursor Agent Skills 文档](https://cursor.com/docs/skills)
 - [Agent Skills 开放标准](https://agentskills.io)
